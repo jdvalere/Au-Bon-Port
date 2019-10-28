@@ -13,7 +13,7 @@ body{
     color:white;
     font-family:Helvetica, sans-serif;
     font-weight:bold;
-    font-size:36px;
+    font-size:15px;
     text-align: center;
     text-decoration:none;
     background-color:#FFA12B;
@@ -52,8 +52,12 @@ body{
     bottom:-15px;
     left:-4px;
     z-index:-1;
-    background-color:#2B1800;
+    background-color: black;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
   }
+
+
+
+
