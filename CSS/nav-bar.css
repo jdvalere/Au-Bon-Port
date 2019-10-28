@@ -1,4 +1,20 @@
 /* A simple, css only, (some-what) responsive menu */
+/* version par défaut: sur grand écran */
+
+/*
+.menu { width: 30em; /* etc. */ }
+
+/* écran plus petit: on passe le menu en horizontal 
+@media (max-width: 100em) {
+	.menu { width: 100%; }
+	.menu li { display: inline-block; }
+	/* etc. 
+}
+
+/* écran encore plus petit: on cache le menu 
+@media (max-width: 50em) {
+	.menu { display: none; }
+}*/
 
 body { 
  
@@ -13,7 +29,9 @@ body {
     -webkit-box-shadow: 0 0 70px #fff;
     -moz-box-shadow: 0 0 70px #fff;
     box-shadow: 0 0 70px #fff;
-    margin-top: 40px;
+    margin-top: 0;
+    position: relative;
+    
   }
   
   /* a little "umph" */
