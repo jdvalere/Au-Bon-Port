@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+        <title>ACCOUNTcreer</title>
+        <link rel="stylesheet" href="css/connexion.css">
+        <title>Au Bon Port</title>
+    
+        <link href="css/landing-page.css" rel="stylesheet">
+    </head>
+    
 <?php
 set_include_path("D:\wamp\bin\php\php5.5.12\pear");
 require_once "Mail.php";
@@ -26,11 +41,8 @@ catch(Exception $e)
 {
 die('Erreur : '.$e->getMessage());
 }
-//variable pour l'envoie du mail de confirmation
-           // $email = $_POST['email'];
-           // $login = $_POST['login'];
-            //création de la clé d'activation pour la création de mail
 
+            //création de la clé d'activation pour la création de mail
             $cle = md5(microtime(TRUE)*100000);
 
             $nom = $_POST['nom'];
@@ -68,9 +80,7 @@ die('Erreur : '.$e->getMessage());
                 ));
             // Insertion de la clé de validation de mail dans la base de données 
             $req = $db->prepare("UPDATE account SET cle=:cle WHERE mail like :mail");
-           // $req = $db->prepare("UPDATE account SET cle=: WHERE mail like : mail");
             $req->bindParam(':cle', $cle);
-            //$req->bindParam(':mail', $mail);
             $req->bindParam(':mail', $mail);
             $req->execute();
             
@@ -103,35 +113,10 @@ die('Erreur : '.$e->getMessage());
             //$resultat=   mail($destinataire, $sujet, $message, $entete) ; // Envoi du mail
             echo "mail=".$resultat;
             echo $mail;
-
-        }
-        else{
-            echo'adresse mail existante';
-        }
-		
-    ?>
-    
-    <!-- message pour dire que la demande a bien ete prise en compte -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
-        <title>ACCOUNT</title>
-        <link rel="stylesheet" href="css/account.css">
-        <title>Au Bon Port</title>
-    
-        <link href="css/landing-page.css" rel="stylesheet">
-    </head>
-    
-    <body>
+            ?>
+            <body>
             <body background="img/background.jpg"> 
-      <meta name="viewport" content="width=device-width"/>
-        <!-- Partie de la Navigation -->
-        
+            <meta name="viewport" content <!-- Partie de la Navigation -->
         <!-- Bandeau d'en t�te -->
         <a name="about"></a>
         <div class="intro-header"> 
@@ -147,7 +132,7 @@ die('Erreur : '.$e->getMessage());
                 </div>
             </div>
         </div>
-        <!-- Fin de l'en-t�te -->
+        <!-- Fin de l'en-tete -->
     
         <!-- Page -->
         
@@ -156,36 +141,63 @@ die('Erreur : '.$e->getMessage());
         
          <form class="box" action='connexion_account.php' method="post" onsubmit="return verifChamps(this)">
                 <script src="js/controleChamps.js"></script>
-                
-
-                <!-- <form action="" method="get" onsbmit="return controleChamps(this)">  -->
-                <!--champsjs:
-               function controlleChamps(){
-                    return false;
-                }     -->
                 <h1>Au Bon Port</h1>
                 <h2> Crée un compte</h2>
-
                 <div align="center">
-            
-       
-
+               
                 <p>Autre enregistrement <a href="Account.php">cliquer ici</a> pour revenir à la page formulaire.php.</p>
-       
-            
-            <!--<a href="formulaire.php" style="color:white"> Vous n'etes pas encore inscrit? Cliquez ici </a></p>-->
-            <p>Pour revenir à la page d'accueil<a href="Accueil.php">cliquez ici </a>.</p>
+                <p>Pour revenir à la page d'accueil<a href="Accueil.php">cliquez ici </a>.</p>
             <input type="submit" name="Valider" value="Valider">
             </div>
-           
-        
-             
-
         </form>
-            
+        </html>
+        </center>
+        </body>
+
+    <?php
+        }
+        else{
+            ?>
+ <body>
+            <body background="img/background.jpg"> 
+      <meta name="viewport" content="width=device-width"/>
         
+        <!-- Bandeau d'en tete -->
+        <a name="about"></a>
+        <div class="intro-header"> 
+            <div class="container"> 
+                    <div class="col-lg-12">
+                        <div style="position: left";class="intro-message">
+                            <hr class="intro-divider">
+                            <ul class="list-inline intro-social-buttons">
+                            </ul>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin de l'en-tete -->
+    
+        <!-- Page -->
+        
+        <center>
+        <html lang="fr" dir="ltr">
+        
+         <form class="box" action='connexion_account.php' method="post" onsubmit="return verifChamps(this)">
+                <h1>Au Bon Port</h1>
+                <h2> Problème de lors de la création</h2>
+
+                <div align="center">
+            <p>Cette adresse Mail est déjà utiliser pour un autre compte. Utiliser une autre adresse mail. Pour revenir à la création de compte <a href="Account.php">cliquer ici</a> pour revenir à la page formulaire.php.</p>
+            <!--<a href="formulaire.php" style="color:white"> Vous n'etes pas encore inscrit? Cliquez ici </a></p>-->
+            <p>Pour vous connectez<a href="login.php">cliquez ici </a>.</p>
+        
+        </div>
+        </form> 
         </html>
         </center>
     
     </body>
-
+            <?php
+        }
+    ?>

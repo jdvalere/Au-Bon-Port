@@ -1,3 +1,4 @@
+
 <?php
 
 //connection a la base de donnee
@@ -21,23 +22,20 @@ die('Erreur : '.$e->getMessage());
 
         <title>ACCOUNT</title>
         <link rel="stylesheet" href="css/account.css">
-        <title>Au Bon Port</title>
-    
         <link href="css/landing-page.css" rel="stylesheet">
     </head>
     
     <body>
-            <body background="img/background.jpg"> 
+           <center> <body background="img/background.jpg"> </center>
       <meta name="viewport" content="width=device-width"/>
         <!-- Partie de la Navigation -->
         
-        <!-- Bandeau d'en t�te -->
+        <!-- Bandeau d'en tete -->
         <a name="about"></a>
         <div class="intro-header"> 
             <div class="container"> 
                     <div class="col-lg-12">
                         <div style="position: left";class="intro-message">
-                            <h1>Au Bon Port</h1>
                             <hr class="intro-divider">
                             <ul class="list-inline intro-social-buttons">
                             </ul>     
@@ -46,7 +44,7 @@ die('Erreur : '.$e->getMessage());
                 </div>
             </div>
         </div>
-        <!-- Fin de l'en-t�te -->
+        <!-- Fin de l'en-tete -->
     
         <!-- Page -->
         
@@ -95,6 +93,7 @@ die('Erreur : '.$e->getMessage());
                 <option value="3">Quelle est votre ville favorite</option>
                 <option value="4">Quelle est votre destination de rêve</option>
                 <option value="5">Quelle est votre couleur préféré</option> </select>
+                <br>
             <input type="text" name="reponse1" placeholder="Reponse de la question secrete 1"required>
             <br>
 
@@ -106,6 +105,7 @@ die('Erreur : '.$e->getMessage());
                 <option value="3">Quelle est le nom de jeune fille de votre mère</option>
                 <option value="4">Votre aliment préféré</option>
                 <option value="5">Quelle est la destination de votre voyage</option> </select>
+                <br>
                 <input type="text" name="reponse2" placeholder="Reponse de la question secrete 2"required>
 
 
