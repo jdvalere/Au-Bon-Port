@@ -44,7 +44,7 @@ die('Erreur : '.$e->getMessage());
 
             //création de la clé d'activation pour la création de mail
             $cle = md5(microtime(TRUE)*100000);
-
+            // recupération des valeur du formulaire
             $nom = $_POST['nom'];
             $prenom = $_POST['prenom'];
             $dateNaissance = $_POST['date'];
@@ -110,14 +110,13 @@ die('Erreur : '.$e->getMessage());
             
             
 			echo'Votre inscription a bien été prise en compte';
-            //$resultat=   mail($destinataire, $sujet, $message, $entete) ; // Envoi du mail
             echo "mail=".$resultat;
             echo $mail;
             ?>
             <body>
             <body background="img/background.jpg"> 
             <meta name="viewport" content <!-- Partie de la Navigation -->
-        <!-- Bandeau d'en t�te -->
+        <!-- Bandeau d'en tete -->
         <a name="about"></a>
         <div class="intro-header"> 
             <div class="container"> 

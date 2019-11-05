@@ -9,6 +9,7 @@ body{
 
 }
 .box{
+margin-top: 10%;
   z-index: 200;
   width: 500px;
   padding: 40px;

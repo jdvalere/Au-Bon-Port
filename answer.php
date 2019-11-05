@@ -8,7 +8,19 @@ catch(Exception $e)
 {
 die('Erreur : '.$e->getMessage());
 }
-
+try //on regarde si le mail exist deja dans la bdd
+{
+    $requete= $db->prepare('SELECT mail from account WHERE mail=:mail');
+    $requete->bindParam(':mail', $_POST['mail']);
+    $requete->setFetchMode(PDO::FETCH_ASSOC);
+    $requete->execute();
+    $resultat=$requete->fetch();
+    
+}
+catch(Exception $e)
+{
+    die('Erreur : '.$e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +40,9 @@ die('Erreur : '.$e->getMessage());
         <title>ACCOUNT</title>
         <link rel="stylesheet" href="css/answer.css">
         <title>Au Bon Port</title>
+    
         <link href="css/landing-page.css" rel="stylesheet">
+    </head>
       </header>
     <body>
             <body background="img/background.jpg"> 
@@ -49,19 +63,40 @@ die('Erreur : '.$e->getMessage());
             </div>
         </div>
         <!-- Fin de l'en-tete -->
+    
         <!-- Page -->
+        
         <center>
         <html lang="fr" dir="ltr">
-            <form class="box" action='answer.php' method="post">
+       
+            <form class="box" action='modifMdp.php' method="post" onsubmit="return verifChampMdp(this)">
+                <script src="js/controlePassForgot.js"></script>
                 <h1>Au Bon Port</h1>
-                <h2> Mot de passe oublie</h2>
+                <h2> Votre mail est :</h2>
                 <div align="center">
-                <input type="email" name="mail" placeholder="entrer votre adresse Mail"required>
+                <?php
+$mail = $_POST['mail'];
+echo "<p>".$mail."</p>";
+
+
+$recup = $db->prepare('SELECT question1 FROM account WHERE mail like :mail');
+$recup->bindParam(':mail', $_POST['mail']);
+$recup->execute();
+while ($donnees = $recup->fetch()){?>
+    <tr>
+        <td><?php echo $donnees['question1']?></td>
+    </tr> 
+<?php }
+
+
+$recup->closeCursor();
+
+?>
+            <input type="text" name="reponseQ1" placeholder="Entrer la reponse a votre question secrete"required>
+            <input type="hidden" name="mail" value='<?php echo $mail ?>'>        
             <input type="submit" name="Valider" value="Valider">
-            </div>
+        </div>
         </form>
         </html>
         </center>
-    
     </body>
-    
